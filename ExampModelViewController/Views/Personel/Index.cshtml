@@ -1,0 +1,36 @@
+﻿@using System.Data.Entity
+@using ExampModelViewController.Models
+
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div>
+    <a href="/Personel/Add" class="btn btn-danger" style="text-align:right">Personel ekle</a>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Personel Id</th>
+        <th>Personel adı</th>
+        <th>Personel soyadı</th>
+        <th>Personel Departman</th>
+        <th>Personel Edit</th>
+        <th>Personel Delete</th>
+    </tr>
+    <tbody>
+        @foreach (Personel _personel in Model)
+        {
+        <tr>
+            <td>@_personel.id</td>
+            <td>@_personel.ad</td>
+            <td>@_personel.soyad</td>
+            <td>@((_personel.Departman != null) ? _personel.Departman.ad : "")</td>
+            <td><a href="/Personel/Edit/@_personel.id"><img src="~/Images/icons8-edit-50.png" /></a></td>
+            <td><a href="/Personel/Delete/@_personel.id"><img src="~/Images/icons8-delete-100.png" /></a></td>
+        </tr>
+        }
+    </tbody>
+</table>

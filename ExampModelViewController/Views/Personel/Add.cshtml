@@ -1,0 +1,42 @@
+﻿@using ExampModelViewController.Models
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Layout.cshtml";
+}
+
+<h2>Add</h2>
+
+<form method="post">
+    <div>
+        <label>Personel Ad</label>
+        <select class="form-control" name="ad">
+            @foreach (Personel _personel in ViewBag.dataPersonel)
+            {
+                <option value="@_personel.ad">@_personel.ad</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label>Personel Soyad</label>
+        <select class="form-control" name="soyad">
+            @foreach (Personel _personel in ViewBag.dataPersonel)
+            {
+                <option value="@_personel.soyad">@_personel.soyad</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label>Departman</label>
+        <select class="form-control" name="departman_id">
+            @foreach (Departman _departman in ViewBag.dataDepartman)
+            {
+                <option value="@_departman.id">@_departman.ad</option>
+            }
+        </select>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-dark">Save</button>
+    </div>
+</form>
+
+

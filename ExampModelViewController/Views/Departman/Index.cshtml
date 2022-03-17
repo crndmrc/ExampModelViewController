@@ -1,0 +1,32 @@
+﻿@using System.Data.Entity
+@using ExampModelViewController.Models
+
+@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div>
+    <a href="/Departman/Add" class="btn btn-danger" style="text-align:right">Departman ekle</a>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Departman Id</th>
+        <th>Departman adı</th>
+        <th>Departman Edit</th>
+        <th>Departman Delete</th>
+    </tr>
+    <tbody>
+        @foreach (Departman _departman in Model)
+        {
+            <tr>
+                <td>@_departman.id</td>
+                <td>@_departman.ad</td>
+                <td><a href="/Departman/Edit/@_departman.id"><img src="~/Images/icons8-edit-50.png" /></a></td>
+                <td><a href="/Departman/Delete/@_departman.id"><img src="~/Images/icons8-delete-100.png" /></a></td>
+            </tr>
+        }
+    </tbody>
+</table>

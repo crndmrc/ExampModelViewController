@@ -1,0 +1,23 @@
+﻿@using ExampModelViewController.Models
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Layout.cshtml";
+}
+
+<h2>Add</h2>
+
+
+<form method="post">
+    <div>
+        <label>Departman</label>
+        <select class="form-control" name="ad">
+            @foreach (Departman _departman in ViewBag.dataDepartman)
+            {
+                <option value="@_departman.ad">@_departman.ad</option>
+            }
+        </select>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-dark">Save</button>
+    </div>
+</form>
